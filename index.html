@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AbdulRazaq Jafar Khamis — Junior Full-Stack Developer based in Dar Es Salaam, Tanzania. Crafting secure, scalable full-stack web applications & automated systems with modern tech." />
+    <title>AbdulRazaq Jafar Khamis — Junior Full-Stack Developer</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <!-- Google Fonts: Inter + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind custom config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+                    },
+                    colors: {
+                        accent: '#34d399', // emerald-400 — terminal-green accent
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        /* Fade-up entrance (use inline animation-delay for staggering) */
+        .fade-up {
+            animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        /* Gentle floating motion for the profile card */
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-12px); }
+        }
+        /* Slim, subtle scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #34d399; }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-gray-100 font-sans antialiased selection:bg-emerald-400 selection:text-gray-900">
+
+    <!-- ===================== NAVBAR ===================== -->
+    <header class="fixed top-0 inset-x-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+        <nav class="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
+            <!-- Logo -->
+            <a href="#home" class="font-mono text-lg font-semibold tracking-tight text-gray-100 hover:text-emerald-400 transition-colors">
+                ajk<span class="text-emerald-400">.dev</span>
+            </a>
+
+            <!-- Desktop links + CTA -->
+            <div class="hidden md:flex items-center gap-8">
+                <ul class="flex items-center gap-8 text-sm font-medium text-gray-400">
+                    <li><a href="#home" class="hover:text-emerald-400 transition-colors">Home</a></li>
+                    <li><a href="#skills" class="hover:text-emerald-400 transition-colors">Skills</a></li>
+                    <li><a href="#projects" class="hover:text-emerald-400 transition-colors">Projects</a></li>
+                    <li><a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a></li>
+                </ul>
+                <a href="#contact"
+                   class="px-4 py-2 rounded-lg bg-emerald-400 text-gray-900 text-sm font-semibold hover:bg-emerald-300 transition-colors">
+                    Let's Talk
+                </a>
+            </div>
+
+            <!-- Mobile hamburger -->
+            <button id="menu-btn" class="md:hidden text-gray-300 hover:text-emerald-400 transition-colors text-xl" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-800 bg-gray-900/95 backdrop-blur-md">
+            <ul class="flex flex-col px-6 py-4 space-y-4 text-sm font-medium text-gray-300">
+                <li><a href="#home" class="block hover:text-emerald-400 transition-colors">Home</a></li>
+                <li><a href="#skills" class="block hover:text-emerald-400 transition-colors">Skills</a></li>
+                <li><a href="#projects" class="block hover:text-emerald-400 transition-colors">Projects</a></li>
+                <li><a href="#contact" class="block hover:text-emerald-400 transition-colors">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===================== HERO ===================== -->
+    <section id="home" class="relative min-h-screen flex items-center px-6 pt-28 pb-20 overflow-hidden">
+
+        <!-- Background decoration: emerald glow + faint grid -->
+        <div class="absolute inset-0 -z-10" aria-hidden="true">
+            <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[42rem] h-[24rem] bg-emerald-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute inset-0"
+                 style="background-image: linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 75%); mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 75%);"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto w-full grid lg:grid-cols-[1.15fr_1fr] gap-14 lg:gap-10 items-center">
+
+            <!-- Left: intro -->
+            <div class="text-center lg:text-left">
+                <!-- Availability badge -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 text-xs font-medium tracking-wide fade-up">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                    </span>
+                    Available for new opportunities
+                </div>
+
+                <!-- Name -->
+                <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] fade-up" style="animation-delay: 0.1s">
+                    AbdulRazaq
+                    <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Jafar Khamis</span>
+                </h1>
+
+                <!-- Title -->
+                <p class="mt-5 text-lg sm:text-xl text-gray-300 font-medium fade-up" style="animation-delay: 0.2s">
+                    Junior Full-Stack Developer
+                </p>
+
+                <!-- Tagline -->
+                <p class="mt-4 max-w-lg mx-auto lg:mx-0 text-gray-400 leading-relaxed fade-up" style="animation-delay: 0.3s">
+                    Crafting secure, scalable full-stack web applications &amp; automated systems with modern tech.
+                </p>
+
+                <!-- CTAs -->
+                <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4 fade-up" style="animation-delay: 0.4s">
+                    <a href="#projects"
+                       class="group px-6 py-3 rounded-lg bg-emerald-400 text-gray-900 font-semibold text-sm hover:bg-emerald-300 transition-all hover:-translate-y-0.5 shadow-lg shadow-emerald-400/20">
+                        View My Work
+                        <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                    <a href="#contact"
+                       class="px-6 py-3 rounded-lg border border-gray-700 text-gray-300 font-semibold text-sm hover:border-emerald-400 hover:text-emerald-400 transition-all hover:-translate-y-0.5">
+                        Get in Touch
+                    </a>
+                </div>
+
+                <!-- Socials -->
+                <div class="mt-10 flex items-center justify-center lg:justify-start gap-4 fade-up" style="animation-delay: 0.5s">
+                    <a href="https://github.com/abdulrazaqjafar" target="_blank" rel="noopener noreferrer"
+                       aria-label="GitHub"
+                       class="w-11 h-11 flex items-center justify-center rounded-full border border-gray-800 text-xl text-gray-400 hover:text-emerald-400 hover:border-emerald-400 transition-all hover:-translate-y-1">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="mailto:abdulrazaqjfar66@gmail.com"
+                       aria-label="Email"
+                       class="w-11 h-11 flex items-center justify-center rounded-full border border-gray-800 text-xl text-gray-400 hover:text-emerald-400 hover:border-emerald-400 transition-all hover:-translate-y-1">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/255679014566" target="_blank" rel="noopener noreferrer"
+                       aria-label="WhatsApp"
+                       class="w-11 h-11 flex items-center justify-center rounded-full border border-gray-800 text-xl text-gray-400 hover:text-emerald-400 hover:border-emerald-400 transition-all hover:-translate-y-1">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <span class="hidden sm:block h-px flex-1 max-w-32 bg-gradient-to-r from-gray-800 to-transparent"></span>
+                </div>
+            </div>
+
+            <!-- Right: profile card -->
+            <div class="fade-up hidden sm:block" style="animation-delay: 0.35s">
+                <div class="animate-float">
+                    <div class="relative mx-auto max-w-sm rounded-2xl border border-gray-800 bg-gray-900/70 backdrop-blur-xl p-8 shadow-2xl shadow-black/40">
+                        <!-- Top accent line -->
+                        <div class="absolute top-0 inset-x-8 h-px bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent"></div>
+
+                        <div class="flex items-center gap-4">
+                            <img src="profile.jpg" alt="AbdulRazaq Jafar Khamis" width="72" height="96"
+                                 class="w-16 h-20 rounded-full object-cover border-2 border-emerald-400/50 shadow-lg shadow-emerald-500/20 bg-gray-800" />
+                            <div>
+                                <h2 class="font-bold text-lg leading-tight">AbdulRazaq J. Khamis</h2>
+                                <p class="text-sm text-emerald-400 font-mono">full-stack developer</p>
+                            </div>
+                        </div>
+
+                        <div class="my-6 h-px bg-gray-800"></div>
+
+                        <ul class="space-y-3.5 text-sm">
+                            <li class="flex items-center gap-3 text-gray-400">
+                                <i class="fa-solid fa-location-dot w-5 text-emerald-400"></i>
+                                Dar Es Salaam, Tanzania
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-400">
+                                <i class="fa-solid fa-envelope w-5 text-emerald-400"></i>
+                                <a href="mailto:abdulrazaqjfar66@gmail.com" class="hover:text-emerald-400 transition-colors break-all">abdulrazaqjfar66@gmail.com</a>
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-400">
+                                <i class="fa-solid fa-circle-check w-5 text-emerald-400"></i>
+                                Open to freelance &amp; full-time
+                            </li>
+                        </ul>
+
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-full bg-gray-800/80 border border-gray-700/60 text-xs text-gray-300">Web Apps</span>
+                            <span class="px-3 py-1 rounded-full bg-gray-800/80 border border-gray-700/60 text-xs text-gray-300">APIs</span>
+                            <span class="px-3 py-1 rounded-full bg-gray-800/80 border border-gray-700/60 text-xs text-gray-300">Automation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll hint -->
+        <a href="#skills" aria-label="Scroll down"
+           class="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-600 hover:text-emerald-400 transition-colors text-sm">
+            <i class="fa-solid fa-chevron-down animate-bounce"></i>
+        </a>
+    </section>
+
+    <!-- ===================== SKILLS & TECHNOLOGIES ===================== -->
+    <section id="skills" class="relative px-6 py-24 border-t border-gray-800/60">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Section header -->
+            <div class="text-center mb-14 fade-up">
+                <span class="inline-block px-3 py-1 rounded-full border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 text-xs font-semibold tracking-widest uppercase">
+                    What I work with
+                </span>
+                <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight">
+                    Skills &amp; <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Technologies</span>
+                </h2>
+                <p class="mt-3 max-w-xl mx-auto text-gray-400 text-sm sm:text-base leading-relaxed">
+                    A toolkit built around shipping secure, scalable products — from the frontend all the way down to the network layer.
+                </p>
+            </div>
+
+            <!-- Skill category cards -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+                <!-- Languages & Frameworks -->
+                <div class="group rounded-2xl border border-gray-800 bg-gray-900/60 p-6 transition-all duration-300 hover:border-emerald-400/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/5 fade-up" style="animation-delay: 0.1s">
+                    <div class="w-11 h-11 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 text-lg mb-5 transition-colors group-hover:bg-emerald-400/20">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="font-bold text-base mb-4">Languages &amp; Frameworks</h3>
+                    <ul class="flex flex-wrap gap-2">
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">HTML5</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">CSS3</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">JavaScript (ES6+)</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">TypeScript</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">PHP</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">Laravel</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">Python</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">Node.js</li>
+                    </ul>
+                </div>
+
+                <!-- Databases & Cloud -->
+                <div class="group rounded-2xl border border-gray-800 bg-gray-900/60 p-6 transition-all duration-300 hover:border-emerald-400/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/5 fade-up" style="animation-delay: 0.2s">
+                    <div class="w-11 h-11 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 text-lg mb-5 transition-colors group-hover:bg-emerald-400/20">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3 class="font-bold text-base mb-4">Databases &amp; Cloud</h3>
+                    <ul class="flex flex-wrap gap-2">
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">MySQL</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">PostgreSQL</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">AWS Hosting</li>
+                    </ul>
+                </div>
+
+                <!-- Security & Networking -->
+                <div class="group rounded-2xl border border-gray-800 bg-gray-900/60 p-6 transition-all duration-300 hover:border-emerald-400/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/5 fade-up" style="animation-delay: 0.3s">
+                    <div class="w-11 h-11 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 text-lg mb-5 transition-colors group-hover:bg-emerald-400/20">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-bold text-base mb-4">Security &amp; Networking</h3>
+                    <ul class="flex flex-wrap gap-2">
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">Vulnerability Scanning</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">REST APIs</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">MikroTik RouterOS</li>
+                    </ul>
+                </div>
+
+                <!-- Tools & Version Control -->
+                <div class="group rounded-2xl border border-gray-800 bg-gray-900/60 p-6 transition-all duration-300 hover:border-emerald-400/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/5 fade-up" style="animation-delay: 0.4s">
+                    <div class="w-11 h-11 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 text-lg mb-5 transition-colors group-hover:bg-emerald-400/20">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="font-bold text-base mb-4">Tools &amp; Version Control</h3>
+                    <ul class="flex flex-wrap gap-2">
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">Git</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">GitHub</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">VS Code</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">Linux / Bash</li>
+                        <li class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-xs text-gray-300 hover:text-emerald-300 hover:border-emerald-400/40 transition-colors cursor-default">Tailwind CSS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FEATURED PROJECTS ===================== -->
+    <section id="projects" class="relative px-6 py-24 border-t border-gray-800/60">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- Section header -->
+            <div class="text-center mb-14 fade-up">
+                <span class="inline-block px-3 py-1 rounded-full border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 text-xs font-semibold tracking-widest uppercase">
+                    Selected work
+                </span>
+                <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight">
+                    Featured <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Projects</span>
+                </h2>
+                <p class="mt-3 max-w-xl mx-auto text-gray-400 text-sm sm:text-base leading-relaxed">
+                    Real products I've designed, built, and shipped — from security tooling to billing infrastructure.
+                </p>
+            </div>
+
+            <!-- Projects grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Project 1: AMPSAVAS -->
+                <article class="group flex flex-col rounded-2xl border border-gray-800 bg-gray-900/60 overflow-hidden transition-all duration-300 hover:border-emerald-400/40 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-emerald-500/10 fade-up" style="animation-delay: 0.1s">
+                    <!-- Card header visual -->
+                    <div class="relative h-40 bg-gradient-to-br from-emerald-500/15 via-gray-800/40 to-gray-900 flex items-center justify-center border-b border-gray-800/80">
+                        <div class="w-16 h-16 rounded-2xl bg-gray-900/80 border border-emerald-400/30 flex items-center justify-center text-emerald-400 text-2xl shadow-lg shadow-emerald-500/10 transition-transform duration-300 group-hover:scale-110">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <span class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-gray-900/80 border border-gray-700/60 text-[10px] font-semibold tracking-wider uppercase text-gray-400">
+                            Security
+                        </span>
+                    </div>
+
+                    <!-- Card body -->
+                    <div class="flex flex-col flex-1 p-6">
+                        <h3 class="font-bold text-lg leading-snug group-hover:text-emerald-300 transition-colors">
+                            AMPSAVAS
+                            <span class="block text-xs font-medium text-gray-500 mt-0.5">Security Assessment Platform</span>
+                        </h3>
+                        <p class="mt-3 text-sm text-gray-400 leading-relaxed flex-1">
+                            A web-based cybersecurity platform that automates vulnerability assessments, scanning web targets with integrated security tools and generating consolidated reports.
+                        </p>
+
+                        <!-- Tech badges -->
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-[11px] text-gray-300">Laravel</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-[11px] text-gray-300">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-[11px] text-gray-300">MySQL</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-[11px] text-gray-300">Tailwind CSS</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-[11px] text-gray-300">REST APIs</span>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="mt-6 pt-5 border-t border-gray-800/80 flex items-center gap-3">
+                            <a href="https://github.com/abdulrazaqjafar/ampsavas" target="_blank" rel="noopener noreferrer"
+                               class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-700 text-xs font-semibold text-gray-300 hover:border-emerald-400 hover:text-emerald-400 transition-colors">
+                                <i class="fa-brands fa-github"></i> Source Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: Tech Sphere WiFi Billing -->
+                <article class="group flex flex-col rounded-2xl border border-gray-800 bg-gray-900/60 overflow-hidden transition-all duration-300 hover:border-emerald-400/40 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-emerald-500/10 fade-up" style="animation-delay: 0.2s">
+                    <!-- Card header visual -->
+                    <div class="relative h-40 bg-gradient-to-br from-teal-500/15 via-gray-800/40 to-gray-900 flex items-center justify-center border-b border-gray-800/80">
+                        <div class="w-16 h-16 rounded-2xl bg-gray-900/80 border border-emerald-400/30 flex items-center justify-center text-emerald-400 text-2xl shadow-lg shadow-emerald-500/10 transition-transform duration-300 group-hover:scale-110">
+                            <i class="fa-solid fa-wifi"></i>
+                        </div>
+                        <span class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-gray-900/80 border border-gray-700/60 text-[10px] font-semibold tracking-wider uppercase text-gray-400">
+                            Networking
+                        </span>
+                    </div>
+
+                    <!-- Card body -->
+                    <div class="flex flex-col flex-1 p-6">
+                        <h3 class="font-bold text-lg leading-snug group-hover:text-emerald-300 transition-colors">
+                            Tech Sphere WiFi Billing
+                            <span class="block text-xs font-medium text-gray-500 mt-0.5">Billing &amp; Captive Portal System</span>
+                        </h3>
+                        <p class="mt-3 text-sm text-gray-400 leading-relaxed flex-1">
+                            An automated WiFi billing and captive portal management system for internet access control, ticketing, and user authentication.
+                        </p>
+
+                        <!-- Tech badges -->
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-[11px] text-gray-300">PHP / Laravel</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-[11px] text-gray-300">MySQL</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-[11px] text-gray-300">MikroTik API</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-[11px] text-gray-300">AWS</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-[11px] text-gray-300">Bootstrap</span>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="mt-6 pt-5 border-t border-gray-800/80 flex items-center gap-3">
+                            <a href="http://18.199.177.29/" target="_blank" rel="noopener noreferrer"
+                               class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-400 text-gray-900 text-xs font-semibold hover:bg-emerald-300 transition-colors">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: Tech Sphere Platform -->
+                <article class="group flex flex-col rounded-2xl border border-gray-800 bg-gray-900/60 overflow-hidden transition-all duration-300 hover:border-emerald-400/40 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-emerald-500/10 fade-up md:col-span-2 lg:col-span-1" style="animation-delay: 0.3s">
+                    <!-- Card header visual -->
+                    <div class="relative h-40 bg-gradient-to-br from-emerald-400/15 via-gray-800/40 to-gray-900 flex items-center justify-center border-b border-gray-800/80">
+                        <div class="w-16 h-16 rounded-2xl bg-gray-900/80 border border-emerald-400/30 flex items-center justify-center text-emerald-400 text-2xl shadow-lg shadow-emerald-500/10 transition-transform duration-300 group-hover:scale-110">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <span class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-gray-900/80 border border-gray-700/60 text-[10px] font-semibold tracking-wider uppercase text-gray-400">
+                            Platform
+                        </span>
+                    </div>
+
+                    <!-- Card body -->
+                    <div class="flex flex-col flex-1 p-6">
+                        <h3 class="font-bold text-lg leading-snug group-hover:text-emerald-300 transition-colors">
+                            Tech Sphere Platform
+                            <span class="block text-xs font-medium text-gray-500 mt-0.5">Business &amp; Web Application Platform</span>
+                        </h3>
+                        <p class="mt-3 text-sm text-gray-400 leading-relaxed flex-1">
+                            A modern business and web application platform delivering tailored IT solutions, digital services, and modern UI/UX design.
+                        </p>
+
+                        <!-- Tech badges -->
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-[11px] text-gray-300">JavaScript</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-[11px] text-gray-300">Tailwind CSS</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-[11px] text-gray-300">PHP</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800/80 border border-gray-700/50 text-[11px] text-gray-300">Node.js</span>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="mt-6 pt-5 border-t border-gray-800/80 flex items-center gap-3">
+                            <a href="https://www.tech-sphere1.xyz/" target="_blank" rel="noopener noreferrer"
+                               class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-400 text-gray-900 text-xs font-semibold hover:bg-emerald-300 transition-colors">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- GitHub CTA -->
+            <div class="mt-12 text-center fade-up" style="animation-delay: 0.4s">
+                <a href="https://github.com/abdulrazaqjafar?tab=repositories" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 text-sm font-semibold text-gray-400 hover:text-emerald-400 transition-colors">
+                    <i class="fa-brands fa-github text-base"></i>
+                    Explore more on GitHub
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONTACT & FOOTER ===================== -->
+    <footer id="contact" class="relative px-6 pt-24 pb-10 border-t border-gray-800/60 overflow-hidden">
+
+        <!-- Background glow -->
+        <div class="absolute inset-0 -z-10" aria-hidden="true">
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[36rem] h-[16rem] bg-emerald-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-3xl mx-auto text-center">
+
+            <!-- CTA header -->
+            <div class="fade-up">
+                <span class="inline-block px-3 py-1 rounded-full border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 text-xs font-semibold tracking-widest uppercase">
+                    Get in touch
+                </span>
+                <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight">
+                    Let's build something
+                    <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">great together</span>
+                </h2>
+                <p class="mt-4 max-w-lg mx-auto text-gray-400 leading-relaxed">
+                    Interested in working together or exploring my projects? Feel free to reach out.
+                </p>
+            </div>
+
+            <!-- Contact option cards -->
+            <div class="mt-10 grid sm:grid-cols-2 gap-4 max-w-xl mx-auto fade-up" style="animation-delay: 0.15s">
+                <a href="mailto:abdulrazaqjfar66@gmail.com"
+                   class="group flex items-center gap-4 rounded-2xl border border-gray-800 bg-gray-900/60 px-5 py-4 text-left transition-all duration-300 hover:border-emerald-400/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/10">
+                    <span class="w-11 h-11 shrink-0 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 text-lg transition-colors group-hover:bg-emerald-400/20">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
+                    <span class="min-w-0">
+                        <span class="block text-xs font-semibold tracking-wider uppercase text-gray-500">Email</span>
+                        <span class="block text-sm font-medium text-gray-200 truncate group-hover:text-emerald-300 transition-colors">abdulrazaqjfar66@gmail.com</span>
+                    </span>
+                </a>
+
+                <a href="https://wa.me/255679014566" target="_blank" rel="noopener noreferrer"
+                   class="group flex items-center gap-4 rounded-2xl border border-gray-800 bg-gray-900/60 px-5 py-4 text-left transition-all duration-300 hover:border-emerald-400/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/10">
+                    <span class="w-11 h-11 shrink-0 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 text-lg transition-colors group-hover:bg-emerald-400/20">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </span>
+                    <span class="min-w-0">
+                        <span class="block text-xs font-semibold tracking-wider uppercase text-gray-500">WhatsApp</span>
+                        <span class="block text-sm font-medium text-gray-200 truncate group-hover:text-emerald-300 transition-colors">+255 679 014 566</span>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Social icons -->
+            <div class="mt-10 flex items-center justify-center gap-4 fade-up" style="animation-delay: 0.25s">
+                <a href="https://github.com/abdulrazaqjafar" target="_blank" rel="noopener noreferrer"
+                   aria-label="GitHub"
+                   class="w-11 h-11 flex items-center justify-center rounded-full border border-gray-800 text-xl text-gray-400 hover:text-emerald-400 hover:border-emerald-400 transition-all hover:-translate-y-1">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="mailto:abdulrazaqjfar66@gmail.com"
+                   aria-label="Email"
+                   class="w-11 h-11 flex items-center justify-center rounded-full border border-gray-800 text-xl text-gray-400 hover:text-emerald-400 hover:border-emerald-400 transition-all hover:-translate-y-1">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/255679014566" target="_blank" rel="noopener noreferrer"
+                   aria-label="WhatsApp"
+                   class="w-11 h-11 flex items-center justify-center rounded-full border border-gray-800 text-xl text-gray-400 hover:text-emerald-400 hover:border-emerald-400 transition-all hover:-translate-y-1">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+
+            <!-- Divider + copyright -->
+            <div class="mt-14 pt-8 border-t border-gray-800/70 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+                <p>© 2026 AbdulRazaq Jafar Khamis. Built with passion in Dar Es Salaam.</p>
+                <a href="#home" class="inline-flex items-center gap-2 hover:text-emerald-400 transition-colors">
+                    Back to top <i class="fa-solid fa-arrow-up text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile menu toggle -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                const icon = menuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
+            });
+        });
+    </script>
+</body>
+</html>
